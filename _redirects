@@ -1,0 +1,6 @@
+# Redirect www to non-www
+https://www.letterpresslabs.com/* https://letterpresslabs.com/:splat 301!
+
+# Force HTTPS
+http://letterpresslabs.com/* https://letterpresslabs.com/:splat 301!
+http://www.letterpresslabs.com/* https://letterpresslabs.com/:splat 301!
