@@ -10,11 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --navy: #1a1f2e;
@@ -32,102 +28,74 @@
             flex-direction: column;
         }
 
-        /* --- NAV --- */
+        a { color: var(--cream); text-decoration: none; }
+
         nav {
             padding: 2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        nav a {
-            color: var(--cream);
-            text-decoration: none;
             font-size: 0.85rem;
             letter-spacing: 0.08em;
-            opacity: 0.7;
-            transition: opacity 0.2s;
         }
 
-        nav a:hover {
-            opacity: 1;
-        }
+        nav a { opacity: 0.5; transition: opacity 0.2s; }
+        nav a:hover, nav a.active { opacity: 1; }
 
-        nav a.active {
-            opacity: 1;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        /* --- MAIN --- */
         main {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
         }
 
-        .products {
-            max-width: 640px;
+        .product-page {
+            max-width: 680px;
             width: 100%;
-        }
-
-        .page-title {
-            font-size: 1.2rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: lowercase;
-            margin-bottom: 3rem;
             text-align: center;
         }
 
-        /* --- PRODUCT CARD --- */
-        .product {
-            border: 1px solid rgba(240, 230, 211, 0.1);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
+        .product-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.4rem;
         }
 
-        .product h2 {
-            font-size: 1.1rem;
+        .product-header img {
+            width: 48px;
+            height: 48px;
+            border-radius: 11px;
+        }
+
+        .product-header h1 {
+            font-size: 1.6rem;
             font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: lowercase;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.04em;
         }
 
-        .product .category {
+        .product-category {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             color: var(--olive);
-            margin-bottom: 1.2rem;
+            margin-bottom: 2.5rem;
         }
 
-        .product p {
-            font-size: 0.85rem;
-            line-height: 1.7;
-            color: var(--muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .product .icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 14px;
-            margin-bottom: 1.2rem;
-        }
-
-        .product .screenshot {
+        .screenshot {
             width: 100%;
-            border-radius: 6px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(240, 230, 211, 0.08);
+            border-radius: 8px;
+            margin-bottom: 2.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--muted);
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
         }
 
         .download-btn {
@@ -136,56 +104,30 @@
             font-size: 0.8rem;
             letter-spacing: 0.08em;
             color: var(--cream);
-            border: 1px solid var(--olive);
-            padding: 0.7rem 2rem;
-            text-decoration: none;
-            transition: background 0.2s, border-color 0.2s;
+            border-bottom: 1px solid var(--olive);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
         }
 
         .download-btn:hover {
-            background: rgba(90, 107, 60, 0.2);
             border-color: var(--cream);
         }
 
-        .divider {
-            width: 40px;
-            height: 1px;
-            background: var(--olive);
-            margin: 1.2rem auto;
-        }
-
-        /* --- FOOTER --- */
         footer {
             padding: 2rem 3rem;
             text-align: center;
             font-size: 0.7rem;
             color: var(--muted);
             letter-spacing: 0.06em;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
-        footer a {
-            color: var(--muted);
-            text-decoration: none;
-        }
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 600px) {
-            nav {
-                padding: 1.5rem 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .product {
-                padding: 2rem 1.5rem;
-            }
-
-            footer {
-                padding: 1.5rem;
-            }
+            nav { padding: 1.5rem; }
+            main { padding: 3rem 1.5rem; }
+            .product-header h1 { font-size: 1.3rem; }
+            .product-header img { width: 40px; height: 40px; }
+            footer { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -193,31 +135,26 @@
 
     <nav>
         <a href="/">letterpress labs</a>
-        <div class="nav-links">
-            <a href="/products" class="active">products</a>
-        </div>
+        <a href="/products" class="active">products</a>
     </nav>
 
     <main>
-        <div class="products">
-            <h1 class="page-title">products</h1>
-
-            <div class="product">
-                <img src="logo-1024.png" alt="PhotoDesk" class="icon">
-                <h2>PhotoDesk</h2>
-                <p class="category">photography</p>
-                <div class="divider"></div>
-                <img src="photodesk.png" alt="PhotoDesk screenshot" class="screenshot">
-                <p>A desktop application for organizing, editing, and managing your photo library with a clean, focused workflow.</p>
-                <a href="PhotoDesk.dmg" class="download-btn" download>download for mac</a>
+        <div class="product-page">
+            <div class="product-header">
+                <img src="logo-1024.png" alt="PhotoDesk icon">
+                <h1>PhotoDesk</h1>
             </div>
+            <p class="product-category">photo editing</p>
 
+            <img src="photodesk.png" alt="PhotoDesk screenshot" class="screenshot">
+
+            <p class="product-desc">A desktop application for organizing, editing, and managing your photo library with a clean, focused workflow.</p>
+
+            <a href="PhotoDesk.dmg" class="download-btn" download>Download for Mac</a>
         </div>
     </main>
 
-    <footer>
-        <a href="/">&copy; 2025 Letterpress Labs</a>
-    </footer>
+    <footer>&copy; 2025 Letterpress Labs</footer>
 
 </body>
 </html>
