@@ -19,11 +19,15 @@
             --muted: #8a8d7b;
         }
 
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
             background: var(--navy);
             color: var(--cream);
             font-family: 'Libre Caslon Text', 'Caslon', Georgia, serif;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -37,6 +41,7 @@
             align-items: center;
             font-size: 0.85rem;
             letter-spacing: 0.08em;
+            flex-shrink: 0;
         }
 
         nav a { opacity: 0.5; transition: opacity 0.2s; }
@@ -47,59 +52,57 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem 2rem;
+            padding: 0 4rem 2rem;
+            min-height: 0;
         }
 
-        .product-page {
-            max-width: 680px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .product-header {
+        .product {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 0.4rem;
+            gap: 4rem;
+            max-width: 1200px;
+            width: 100%;
         }
 
-        .product-header img {
+        .product .screenshot {
+            flex: 3;
+            min-width: 0;
+        }
+
+        .product .screenshot img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .product .info {
+            flex: 1;
+            min-width: 200px;
+            max-width: 240px;
+        }
+
+        .info .icon {
             width: 48px;
             height: 48px;
             border-radius: 11px;
+            margin-bottom: 1rem;
         }
 
-        .product-header h1 {
-            font-size: 1.6rem;
+        .info h1 {
+            font-size: 1.5rem;
             font-weight: 400;
             letter-spacing: 0.04em;
+            margin-bottom: 1.5rem;
         }
 
-        .product-category {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--olive);
-            margin-bottom: 2.5rem;
-        }
-
-        .screenshot {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 2.5rem;
-        }
-
-        .product-desc {
-            font-size: 0.9rem;
-            line-height: 1.8;
+        .info p {
+            font-size: 0.85rem;
+            line-height: 1.7;
             color: var(--muted);
-            max-width: 480px;
-            margin: 0 auto 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .download-btn {
-            display: inline-block;
             font-family: 'Libre Caslon Text', 'Caslon', Georgia, serif;
             font-size: 0.8rem;
             letter-spacing: 0.08em;
@@ -114,19 +117,29 @@
         }
 
         footer {
-            padding: 2rem 3rem;
+            padding: 1rem 3rem;
             text-align: center;
             font-size: 0.7rem;
             color: var(--muted);
             letter-spacing: 0.06em;
             opacity: 0.4;
+            flex-shrink: 0;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            html, body { height: auto; overflow: auto; }
             nav { padding: 1.5rem; }
-            main { padding: 3rem 1.5rem; }
-            .product-header h1 { font-size: 1.3rem; }
-            .product-header img { width: 40px; height: 40px; }
+            main { padding: 2rem 1.5rem; }
+
+            .product {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .product .info { width: 100%; }
+            .info h1 { font-size: 1.3rem; }
+            .info .icon { width: 40px; height: 40px; }
             footer { padding: 1.5rem; }
         }
     </style>
@@ -139,18 +152,16 @@
     </nav>
 
     <main>
-        <div class="product-page">
-            <div class="product-header">
-                <img src="logo-1024.png" alt="PhotoDesk icon">
-                <h1>PhotoDesk</h1>
+        <div class="product">
+            <div class="screenshot">
+                <img src="photodesk.png" alt="PhotoDesk screenshot">
             </div>
-            <p class="product-category">photo editing</p>
-
-            <img src="photodesk.png" alt="PhotoDesk screenshot" class="screenshot">
-
-            <p class="product-desc">A desktop application for organizing, editing, and managing your photo library with a clean, focused workflow.</p>
-
-            <a href="PhotoDesk.dmg" class="download-btn" download>Download for Mac</a>
+            <div class="info">
+                <img src="logo-1024.png" alt="PhotoDesk" class="icon">
+                <h1>PhotoDesk</h1>
+                <p>A desktop application for organizing, editing, and managing your photo library with a clean, focused workflow.</p>
+                <a href="PhotoDesk.dmg" class="download-btn" download>Download for Mac</a>
+            </div>
         </div>
     </main>
 
