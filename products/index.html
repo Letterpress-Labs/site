@@ -81,18 +81,23 @@
             max-width: 240px;
         }
 
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
         .info .icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 11px;
-            margin-bottom: 1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
         }
 
         .info h1 {
             font-size: 1.5rem;
             font-weight: 400;
             letter-spacing: 0.04em;
-            margin-bottom: 1.5rem;
         }
 
         .info p {
@@ -157,8 +162,10 @@
                 <img src="photodesk.png" alt="PhotoDesk screenshot">
             </div>
             <div class="info">
-                <img src="logo-1024.png" alt="PhotoDesk" class="icon">
-                <h1>PhotoDesk</h1>
+                <div class="info-header">
+                    <img src="logo-1024.png" alt="PhotoDesk" class="icon">
+                    <h1>PhotoDesk</h1>
+                </div>
                 <p>A desktop application for organizing, editing, and managing your photo library with a clean, focused workflow.</p>
                 <a href="PhotoDesk.dmg" class="download-btn" download>Download for Mac</a>
             </div>
